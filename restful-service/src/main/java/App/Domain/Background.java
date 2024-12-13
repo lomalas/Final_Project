@@ -1,11 +1,14 @@
 package App.Domain;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Background {
 
     private String backgroundName;  // Corresponds to BACKGROUND_NAME
-    private String toolProficiencies;  // Corresponds to TOOL_PROFICIENCIES
-    private String language;  // Corresponds to LANGUAGE
-    private String startingEquipment;  // Corresponds to STARTING_EQUIPMENT
+    private List<String> toolProficiencies;  // Corresponds to TOOL_PROFICIENCIES
+    private List<String> languages;  // Corresponds to LANGUAGE
+    private List<String> startingEquipment;  // Corresponds to STARTING_EQUIPMENT
     private String description;  // Corresponds to DESCRIPTION
     private String features;  // Corresponds to FEATURES
     private String personalityTraits;  // Corresponds to PERSONALITY_TRAITS
@@ -13,13 +16,17 @@ public class Background {
     private String bonds;  // Corresponds to BONDS
     private String flaws;  // Corresponds to FLAWS
 
+    // Default constructor
+    public Background() {
+    }
+
     // Constructor to initialize the Background object
-    public Background(String backgroundName, String toolProficiencies, String language, String startingEquipment,
-                      String description, String features, String personalityTraits, String ideals,
-                      String bonds, String flaws) {
+    public Background(String backgroundName, List<String> toolProficiencies, List<String> languages,
+                      List<String> startingEquipment, String description, String features,
+                      String personalityTraits, String ideals, String bonds, String flaws) {
         this.backgroundName = backgroundName;
         this.toolProficiencies = toolProficiencies;
-        this.language = language;
+        this.languages = languages;
         this.startingEquipment = startingEquipment;
         this.description = description;
         this.features = features;
@@ -29,7 +36,7 @@ public class Background {
         this.flaws = flaws;
     }
 
-    // Getters and Setters for each attribute
+    // Getters and setters
 
     public String getBackgroundName() {
         return backgroundName;
@@ -39,27 +46,27 @@ public class Background {
         this.backgroundName = backgroundName;
     }
 
-    public String getToolProficiencies() {
+    public List<String> getToolProficiencies() {
         return toolProficiencies;
     }
 
-    public void setToolProficiencies(String toolProficiencies) {
+    public void setToolProficiencies(List<String> toolProficiencies) {
         this.toolProficiencies = toolProficiencies;
     }
 
-    public String getLanguage() {
-        return language;
+    public List<String> getLanguages() {
+        return languages;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setLanguages(List<String> languages) {
+        this.languages = languages;
     }
 
-    public String getStartingEquipment() {
+    public List<String> getStartingEquipment() {
         return startingEquipment;
     }
 
-    public void setStartingEquipment(String startingEquipment) {
+    public void setStartingEquipment(List<String> startingEquipment) {
         this.startingEquipment = startingEquipment;
     }
 
@@ -116,9 +123,9 @@ public class Background {
     public String toString() {
         return "Background{" +
                 "backgroundName='" + backgroundName + '\'' +
-                ", toolProficiencies='" + toolProficiencies + '\'' +
-                ", language='" + language + '\'' +
-                ", startingEquipment='" + startingEquipment + '\'' +
+                ", toolProficiencies=" + toolProficiencies +
+                ", languages=" + languages +
+                ", startingEquipment=" + startingEquipment +
                 ", description='" + description + '\'' +
                 ", features='" + features + '\'' +
                 ", personalityTraits='" + personalityTraits + '\'' +
@@ -126,5 +133,25 @@ public class Background {
                 ", bonds='" + bonds + '\'' +
                 ", flaws='" + flaws + '\'' +
                 '}';
+    }
+
+    // Main method to test the Background class
+    public static void main(String[] args) {
+        // Creating a sample Background object
+        Background background = new Background(
+                "Soldier",
+                Arrays.asList("Smith's tools", "Vehicles (land)"),
+                Arrays.asList("Common", "Elvish"),
+                Arrays.asList("A longsword", "A shield", "Explorer's pack"),
+                "A soldier from a distant army",
+                "Combat training",
+                "Loyal and disciplined",
+                "Serve the kingdom",
+                "Duty before personal desires",
+                "A deep scar from the battlefield"
+        );
+
+        // Print the object
+        System.out.println(background);
     }
 }
